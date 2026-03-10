@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beranda - Oseï</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mitsubishi: { red: '#E7192D', dark: '#1a1a1a', grey: '#727070', light: '#F3F4F6' },
+                        danfoss: { blue: '#005A8C' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .product-card { transition: all 0.3s ease; }
+        .product-card:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+    </style>
+</head>
+<body class="bg-gray-50 pb-24">
+    <header class="sticky top-0 z-40 bg-white border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-mitsubishi-red rounded flex items-center justify-center">
+                    <div class="grid grid-cols-2 gap-0.5">
+                        <div class="w-1.5 h-1.5 bg-white transform rotate-45"></div>
+                        <div class="w-1.5 h-1.5 bg-white transform rotate-45"></div>
+                        <div class="w-1.5 h-1.5 bg-white transform rotate-45"></div>
+                    </div>
+                </div>
+                <div>
+                    <h1 class="font-bold text-sm leading-tight">MITSUBISHI</h1>
+                    <p class="text-[10px] text-gray-500 -mt-0.5">Electric</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <a href="checkout.html" class="w-10 h-10 rounded-full hover:bg-gray-100 flex items-center justify-center relative">
+                    <i class="fas fa-shopping-cart text-gray-600"></i>
+                    <span class="absolute top-1 right-1 w-4 h-4 bg-mitsubishi-red text-white text-[10px] rounded-full flex items-center justify-center">2</span>
+                </a>
+                <a href="profile.html" class="w-10 h-10 rounded-full overflow-hidden border-2 border-gray-200">
+                    <img src="https://i.pravatar.cc/150?img=5" class="w-full h-full object-cover" alt="Profile">
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="bg-white border-b border-gray-100 px-4 py-3">
+        <div class="max-w-7xl mx-auto">
+            <div class="relative">
+                <input type="text" placeholder="Cari FR-A820, FX5U, MR-J4..." class="w-full bg-gray-100 rounded-xl py-3 pl-10 pr-12 text-sm focus:outline-none focus:ring-2 focus:ring-mitsubishi-red/20">
+                <i class="fas fa-search absolute left-3.5 top-3.5 text-gray-400"></i>
+                <button class="absolute right-2 top-2 w-8 h-8 bg-white rounded-lg shadow flex items-center justify-center text-gray-600 hover:text-mitsubishi-red">
+                    <i class="fas fa-barcode"></i>
+                </button>
+            </div>
+            <div class="flex gap-2 mt-3 overflow-x-auto hide-scrollbar pb-1">
+                <button onclick="filterProducts('all')" class="filter-btn active px-4 py-1.5 bg-mitsubishi-red text-white text-xs font-medium rounded-full whitespace-nowrap" data-filter="all">Semua</button>
+                <button onclick="filterProducts('mitsubishi')" class="filter-btn px-4 py-1.5 bg-gray-200 text-gray-700 text-xs font-medium rounded-full whitespace-nowrap" data-filter="mitsubishi">Mitsubishi</button>
+                <button onclick="filterProducts('inverter')" class="filter-btn px-4 py-1.5 bg-gray-200 text-gray-700 text-xs font-medium rounded-full whitespace-nowrap" data-filter="inverter">Inverter</button>
+                <button onclick="filterProducts('plc')" class="filter-btn px-4 py-1.5 bg-gray-200 text-gray-700 text-xs font-medium rounded-full whitespace-nowrap" data-filter="plc">PLC</button>
+                <button onclick="filterProducts('servo')" class="filter-btn px-4 py-1.5 bg-gray-200 text-gray-700 text-xs font-medium rounded-full whitespace-nowrap" data-filter="servo">Servo</button>
+            </div>
+        </div>
+    </div>
+
+    <main class="max-w-7xl mx-auto px-4 py-6">
+        <div class="bg-gradient-to-br from-slate-900 via-slate-800 to-mitsubishi-red rounded-2xl p-6 mb-6 text-white relative overflow-hidden">
+            <span class="inline-block bg-mitsubishi-red text-white text-[10px] font-bold px-2 py-1 rounded mb-2">New Arrival</span>
+            <h2 class="text-2xl font-bold mb-1">Melsec iQ-R Series</h2>
+            <p class="text-sm text-gray-300 mb-4 max-w-xs">Next-generation PLC dengan performa tinggi untuk industri 4.0</p>
+            <a href="product-detail.html" class="inline-flex items-center gap-2 bg-white text-slate-900 px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-100 transition">
+                Lihat Detail <i class="fas fa-arrow-right text-xs"></i>
+            </a>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="productGrid">
+            <div class="product-card bg-white rounded-2xl p-3 shadow-sm border border-gray-100 relative group" data-brand="mitsubishi" data-category="inverter">
+                <div class="absolute top-2 left-2 z-10">
+                    <span class="bg-green-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">24 Unit</span>
+                </div>
+                <button onclick="addToCompare('FR-A820-0.4K')" class="absolute top-2 right-2 z-10 w-8 h-8 bg-white/80 backdrop-blur rounded-full flex items-center justify-center text-gray-400 hover:text-mitsubishi-red opacity-0 group-hover:opacity-100 transition-opacity">
+                    <i class="fas fa-balance-scale text-xs"></i>
+                </button>
+                <a href="product-detail.html" class="block">
+                    <div class="aspect-square bg-gray-100 rounded-xl mb-3 flex items-center justify-center overflow-hidden">
+                        <i class="fas fa-bolt text-2xl text-gray-400"></i>
+                    </div>
+                    <h4 class="font-semibold text-sm text-gray-900 mb-1">FR-A820-0.4K</h4>
+                    <p class="text-xs text-gray-500 mb-2">Inverter 0.4kW 200V</p>
+                    <p class="font-bold text-mitsubishi-red text-sm">Rp 5.200.000</p>
+                </a>
+                <button onclick="addToCart('FR-A820-0.4K')" class="mt-2 w-full bg-gray-100 hover:bg-mitsubishi-red hover:text-white text-gray-700 py-2 rounded-lg text-xs font-semibold transition-colors">
+                    <i class="fas fa-plus"></i> Tambah
+                </button>
+            </div>
+
+            <div class="product-card bg-white rounded-2xl p-3 shadow-sm border border-gray-100 relative group" data-brand="mitsubishi" data-category="plc">
+                <div class="absolute top-2 left-2 z-10">
+                    <span class="bg-orange-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">Indent 14 Hari</span>
+                </div>
+                <a href="product-detail.html" class="block">
+                    <div class="aspect-square bg-gray-100 rounded-xl mb-3 flex items-center justify-center">
+                        <i class="fas fa-microchip text-2xl text-gray-400"></i>
+                    </div>
+                    <h4 class="font-semibold text-sm text-gray-900 mb-1">FX5U-32MT/ESS</h4>
+                    <p class="text-xs text-gray-500 mb-2">PLC CPU 32 I/O</p>
+                    <p class="font-bold text-mitsubishi-red text-sm">Rp 8.500.000</p>
+                </a>
+            </div>
+
+            <div class="product-card bg-white rounded-2xl p-3 shadow-sm border border-gray-100 relative group" data-brand="danfoss" data-category="inverter">
+                <div class="absolute top-2 left-2 z-10">
+                    <span class="bg-green-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">8 Unit</span>
+                </div>
+                <a href="product-detail.html" class="block">
+                    <div class="aspect-square bg-gray-100 rounded-xl mb-3 flex items-center justify-center">
+                        <i class="fas fa-bolt text-2xl text-gray-400"></i>
+                    </div>
+                    <h4 class="font-semibold text-sm text-gray-900 mb-1">FC-302P1K5</h4>
+                    <p class="text-xs text-gray-500 mb-2">Danfoss VLT 1.5kW</p>
+                    <p class="font-bold text-danfoss-blue text-sm">Rp 12.500.000</p>
+                </a>
+            </div>
+
+            <div class="product-card bg-white rounded-2xl p-3 shadow-sm border border-gray-100 relative group" data-brand="mitsubishi" data-category="servo">
+                <div class="absolute top-2 left-2 z-10">
+                    <span class="bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">Hanya 3 Unit</span>
+                </div>
+                <a href="product-detail.html" class="block">
+                    <div class="aspect-square bg-gray-100 rounded-xl mb-3 flex items-center justify-center">
+                        <i class="fas fa-cog text-2xl text-gray-400"></i>
+                    </div>
+                    <h4 class="font-semibold text-sm text-gray-900 mb-1">MR-J4-10B</h4>
+                    <p class="text-xs text-gray-500 mb-2">Servo Amplifier 100W</p>
+                    <p class="font-bold text-mitsubishi-red text-sm">Rp 6.800.000</p>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <div id="compareBar" class="fixed bottom-20 left-4 right-4 bg-white rounded-xl shadow-2xl border border-gray-200 p-3 hidden z-30">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <span class="bg-mitsubishi-red text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center" id="compareCount">0</span>
+                <span class="text-sm font-medium">Produk dipilih untuk dibandingkan</span>
+            </div>
+            <a href="compare.html" class="bg-mitsubishi-red text-white text-xs font-semibold px-4 py-2 rounded-lg">Bandingkan</a>
+        </div>
+    </div>
+
+    <nav class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-6 py-3 z-40">
+        <div class="max-w-md mx-auto flex justify-between items-center">
+            <a href="home.html" class="flex flex-col items-center gap-1 text-mitsubishi-red">
+                <i class="fas fa-home text-lg"></i>
+                <span class="text-[10px] font-medium">Beranda</span>
+            </a>
+            <a href="search-results.html" class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-600">
+                <i class="fas fa-search text-lg"></i>
+                <span class="text-[10px] font-medium">Cari</span>
+            </a>
+            <a href="projects.html" class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-600">
+                <i class="fas fa-folder text-lg"></i>
+                <span class="text-[10px] font-medium">Proyek</span>
+            </a>
+            <a href="profile.html" class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-600">
+                <i class="fas fa-user text-lg"></i>
+                <span class="text-[10px] font-medium">Profil</span>
+            </a>
+        </div>
+    </nav>
+
+    <script>
+        function filterProducts(category) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            const products = document.querySelectorAll('.product-card');
+            
+            buttons.forEach(btn => {
+                if(btn.dataset.filter === category) {
+                    btn.classList.remove('bg-gray-200', 'text-gray-700');
+                    btn.classList.add('bg-mitsubishi-red', 'text-white');
+                } else {
+                    btn.classList.add('bg-gray-200', 'text-gray-700');
+                    btn.classList.remove('bg-mitsubishi-red', 'text-white');
+                }
+            });
+
+            products.forEach(product => {
+                if(category === 'all' || product.dataset.brand === category || product.dataset.category === category) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+
+        let compareList = JSON.parse(localStorage.getItem('compareList') || '[]');
+        
+        function addToCompare(productId) {
+            if(!compareList.includes(productId)) {
+                if(compareList.length >= 3) {
+                    alert('Maksimal 3 produk untuk dibandingkan');
+                    return;
+                }
+                compareList.push(productId);
+                localStorage.setItem('compareList', JSON.stringify(compareList));
+                updateCompareBar();
+            }
+        }
+
+        function updateCompareBar() {
+            const bar = document.getElementById('compareBar');
+            const count = document.getElementById('compareCount');
+            count.textContent = compareList.length;
+            bar.classList.toggle('hidden', compareList.length === 0);
+        }
+
+        function addToCart(productId) {
+            alert('Ditambahkan ke keranjang: ' + productId);
+        }
+
+        updateCompareBar();
+    </script>
+</body>
+</html>

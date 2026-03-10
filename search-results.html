@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil Pencarian - Oseï</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mitsubishi: { red: '#E7192D', dark: '#1a1a1a', grey: '#727070' },
+                        danfoss: { blue: '#005A8C' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="sticky top-0 z-40 bg-white border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 h-16 flex items-center gap-3">
+            <a href="home.html" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100">
+                <i class="fas fa-arrow-left text-gray-600"></i>
+            </a>
+            <div class="flex-1 relative">
+                <input type="text" value="FR-A820" class="w-full bg-gray-100 rounded-xl py-2.5 pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-mitsubishi-red/20">
+                <i class="fas fa-search absolute left-3.5 top-3 text-gray-400"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="bg-white border-b border-gray-100 px-4 py-3">
+        <div class="flex items-center gap-2 overflow-x-auto hide-scrollbar">
+            <span class="text-xs text-gray-500 whitespace-nowrap">Filter aktif:</span>
+            <span class="bg-mitsubishi-red/10 text-mitsubishi-red text-xs px-3 py-1 rounded-full flex items-center gap-1 whitespace-nowrap">
+                Inverter <i class="fas fa-times-circle cursor-pointer"></i>
+            </span>
+            <span class="bg-mitsubishi-red/10 text-mitsubishi-red text-xs px-3 py-1 rounded-full flex items-center gap-1 whitespace-nowrap">
+                Ready Stock <i class="fas fa-times-circle cursor-pointer"></i>
+            </span>
+        </div>
+    </div>
+
+    <main class="max-w-7xl mx-auto px-4 py-4">
+        <div class="flex justify-between items-center mb-4">
+            <p class="text-sm text-gray-600">Ditemukan <span class="font-bold text-gray-900">12</span> produk</p>
+            <select class="text-sm border border-gray-200 rounded-lg px-3 py-1.5 bg-white">
+                <option>Relevansi</option>
+                <option>Harga Terendah</option>
+                <option>Harga Tertinggi</option>
+            </select>
+        </div>
+
+        <div class="space-y-3">
+            <div class="bg-white rounded-xl p-4 shadow-sm border border-gray-100 flex gap-4">
+                <div class="w-24 h-24 bg-gray-100 rounded-lg flex-shrink-0 flex items-center justify-center">
+                    <i class="fas fa-bolt text-3xl text-gray-400"></i>
+                </div>
+                <div class="flex-1">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="text-[10px] bg-green-100 text-green-700 px-2 py-0.5 rounded font-medium">24 Unit Tersedia</span>
+                            <h3 class="font-bold text-gray-900 mt-1">FR-A820-0.4K-1</h3>
+                            <p class="text-xs text-gray-500">Mitsubishi Inverter FR-A800 Series • 0.4kW • 200V</p>
+                        </div>
+                        <button onclick="addToCompare('FR-A820-0.4K')" class="text-gray-400 hover:text-mitsubishi-red">
+                            <i class="fas fa-balance-scale"></i>
+                        </button>
+                    </div>
+                    <div class="flex gap-3 mt-2 text-[10px] text-gray-600">
+                        <span class="bg-gray-100 px-2 py-0.5 rounded">0.4 kW</span>
+                        <span class="bg-gray-100 px-2 py-0.5 rounded">200V</span>
+                        <span class="bg-gray-100 px-2 py-0.5 rounded">3-phase</span>
+                    </div>
+                    <div class="flex justify-between items-end mt-3">
+                        <div>
+                            <p class="text-lg font-bold text-mitsubishi-red">Rp 5.200.000</p>
+                            <p class="text-xs text-gray-400">Harga per unit</p>
+                        </div>
+                        <a href="product-detail.html" class="px-4 py-2 bg-mitsubishi-red text-white text-sm font-semibold rounded-lg">Detail</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl p-4 shadow-sm border border-gray-100 flex gap-4">
+                <div class="w-24 h-24 bg-gray-100 rounded-lg flex-shrink-0 flex items-center justify-center">
+                    <i class="fas fa-bolt text-3xl text-gray-400"></i>
+                </div>
+                <div class="flex-1">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="text-[10px] bg-orange-100 text-orange-700 px-2 py-0.5 rounded font-medium">Indent 14 Hari</span>
+                            <h3 class="font-bold text-gray-900 mt-1">FR-A820-2.2K-1</h3>
+                            <p class="text-xs text-gray-500">Mitsubishi Inverter • 2.2kW • 200V</p>
+                        </div>
+                    </div>
+                    <div class="mt-2 bg-gray-50 rounded-lg p-2">
+                        <p class="text-[10px] text-gray-600 mb-1">Harga bertingkat:</p>
+                        <div class="flex gap-2 text-[10px]">
+                            <span class="bg-white px-2 py-1 rounded border">1-5: Rp 12.5jt</span>
+                            <span class="bg-green-50 text-green-700 px-2 py-1 rounded border border-green-200">6+: Rp 11.8jt</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-end mt-3">
+                        <p class="text-lg font-bold text-mitsubishi-red">Rp 12.500.000</p>
+                        <a href="product-detail.html" class="px-4 py-2 bg-mitsubishi-red text-white text-sm font-semibold rounded-lg">Detail</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="compareBar" class="fixed bottom-4 left-4 right-4 bg-white rounded-xl shadow-2xl border border-gray-200 p-3 hidden z-30">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <span class="bg-mitsubishi-red text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center" id="compareCount">0</span>
+                <span class="text-sm font-medium">Produk dipilih</span>
+            </div>
+            <a href="compare.html" class="bg-mitsubishi-red text-white text-xs font-semibold px-4 py-2 rounded-lg">Bandingkan</a>
+        </div>
+    </div>
+
+    <script>
+        let compareList = JSON.parse(localStorage.getItem('compareList') || '[]');
+        
+        function addToCompare(productId) {
+            if(!compareList.includes(productId)) {
+                if(compareList.length >= 3) {
+                    alert('Maksimal 3 produk');
+                    return;
+                }
+                compareList.push(productId);
+                localStorage.setItem('compareList', JSON.stringify(compareList));
+                updateCompareBar();
+            }
+        }
+
+        function updateCompareBar() {
+            const bar = document.getElementById('compareBar');
+            const count = document.getElementById('compareCount');
+            count.textContent = compareList.length;
+            bar.classList.toggle('hidden', compareList.length === 0);
+        }
+
+        updateCompareBar();
+    </script>
+</body>
+</html>
