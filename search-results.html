@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hasil Pencarian - Oseï</title>
+    <title>Hasil Pencarian - Otomasiku</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -53,7 +53,7 @@
             <input
               type="text"
               id="searchInput"
-              value="FR-A820"
+              value=""
               class="w-full bg-gray-100 rounded-xl py-2.5 pl-10 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-mitsubishi-red/20"
               placeholder="Cari produk..."
             />
@@ -336,6 +336,10 @@
           class="product-card bg-white rounded-xl p-4 shadow-sm border border-gray-100 flex gap-4"
           data-name="FR-A820-0.4K-1"
           data-price="5200000"
+          data-category="inverter"
+          data-brand="mitsubishi"
+          data-stock="ready-stock"
+          data-power="daya-kecil"
         >
           <div
             class="w-24 h-24 bg-gray-100 rounded-lg flex-shrink-0 flex items-center justify-center"
@@ -387,6 +391,10 @@
           class="product-card bg-white rounded-xl p-4 shadow-sm border border-gray-100 flex gap-4"
           data-name="FR-A820-2.2K-1"
           data-price="12500000"
+          data-category="inverter"
+          data-brand="mitsubishi"
+          data-stock="indent"
+          data-power="daya-kecil"
         >
           <div
             class="w-24 h-24 bg-gray-100 rounded-lg flex-shrink-0 flex items-center justify-center"
@@ -514,6 +522,7 @@
             tag.remove();
             renderEmptyFilterState();
             syncModalOptions();
+            applyFilters();
             console.log("Filter removed:", filterValue);
           }, 200);
         }
@@ -643,13 +652,62 @@
         bindFilterTags();
         renderEmptyFilterState();
         closeFilterModal();
-        console.log("Filters applied:", activeFilters);
-        // applyFilters(); // Uncomment when backend ready
+        applyFilters();
+      }
+
+      // ==================== APPLY FILTERS TO PRODUCTS ====================
+      function applyFilters() {
+        const products = document.querySelectorAll(".product-card");
+        const keys = Object.keys(activeFilters);
+
+        // Group filters by type
+        const categories = ["inverter", "servo", "plc", "hmi", "sensor"];
+        const stocks = ["ready-stock", "indent", "pre-order"];
+        const brands = [
+          "mitsubishi",
+          "danfoss",
+          "siemens",
+          "omron",
+          "schneider",
+        ];
+        const powers = ["daya-kecil", "daya-menengah", "daya-besar"];
+
+        const activeCategories = keys.filter((k) => categories.includes(k));
+        const activeStocks = keys.filter((k) => stocks.includes(k));
+        const activeBrands = keys.filter((k) => brands.includes(k));
+        const activePowers = keys.filter((k) => powers.includes(k));
+
+        let visibleCount = 0;
+        products.forEach((p) => {
+          const cat = p.dataset.category || "";
+          const stock = p.dataset.stock || "";
+          const brand = p.dataset.brand || "";
+          const power = p.dataset.power || "";
+
+          const matchCat =
+            activeCategories.length === 0 || activeCategories.includes(cat);
+          const matchStock =
+            activeStocks.length === 0 || activeStocks.includes(stock);
+          const matchBrand =
+            activeBrands.length === 0 || activeBrands.includes(brand);
+          const matchPower =
+            activePowers.length === 0 || activePowers.includes(power);
+
+          const visible = matchCat && matchStock && matchBrand && matchPower;
+          p.style.display = visible ? "flex" : "none";
+          if (visible) visibleCount++;
+        });
+
+        document.getElementById("productCount").textContent = visibleCount;
+        document
+          .getElementById("emptyState")
+          .classList.toggle("hidden", visibleCount > 0);
       }
 
       // Initialize
       bindFilterTags();
       syncModalOptions();
+      applyFilters();
 
       // ==================== SEARCH FUNCTIONALITY ====================
       const searchInput = document.getElementById("searchInput");
