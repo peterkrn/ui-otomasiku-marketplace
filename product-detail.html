@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FR-A820-0.4K - Oseï</title>
+    <title>FR-A820-0.4K - Otomasiku</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -93,7 +93,9 @@
             <i class="fas fa-warehouse"></i>
           </div>
           <div class="flex-1">
-            <p class="text-sm font-semibold text-green-800">24 Unit Tersedia</p>
+            <p class="text-sm font-semibold text-green-800" id="stockDisplay">
+              24 Unit Tersedia
+            </p>
             <p class="text-xs text-green-600">
               Gudang Jakarta • Siap kirim 1-2 hari kerja
             </p>
@@ -332,13 +334,21 @@
         >
           <i class="far fa-bookmark text-lg"></i>
         </button>
-        <a
-          href="checkout.html"
-          class="flex-1 bg-mitsubishi-red hover:bg-red-700 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2"
+        <button
+          id="addCartBtn"
+          onclick="addToCartFromDetail()"
+          class="flex-1 border-2 border-mitsubishi-red text-mitsubishi-red font-bold py-3 rounded-xl flex items-center justify-center gap-2 hover:bg-red-50 active:scale-[0.98] transition-all"
         >
-          <span>Beli Sekarang</span>
+          <i class="fas fa-shopping-cart text-sm"></i>
+          <span>Keranjang</span>
+        </button>
+        <button
+          onclick="buyNow()"
+          class="flex-1 bg-mitsubishi-red hover:bg-red-700 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 active:scale-[0.98] transition-all"
+        >
+          <span>Beli</span>
           <i class="fas fa-arrow-right text-sm"></i>
-        </a>
+        </button>
       </div>
     </footer>
 
@@ -389,6 +399,9 @@
 
     <script>
       let qty = 1;
+      const currentProductId = "FR-A820-0.4K"; // ID produk halaman ini
+      const initialStock = 24; // Stok default
+
       function updateQty(change) {
         qty += change;
         if (qty < 1) qty = 1;
@@ -419,6 +432,45 @@
         closeRFQ();
       }
 
+      function addToCartFromDetail() {
+        const qty = parseInt(document.getElementById("qty").value) || 1;
+        const productId = "FR-A820-0.4K";
+        const productName = "FR-A820-0.4K";
+        const price = 5200000;
+
+        let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+        const existing = cart.find((i) => i.id === productId);
+        if (existing) {
+          existing.quantity += qty;
+        } else {
+          cart.push({
+            id: productId,
+            name: productName,
+            price: price,
+            quantity: qty,
+            addedAt: new Date().toISOString(),
+          });
+        }
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        // Visual feedback on button
+        const btn = document.getElementById("addCartBtn");
+        const original = btn.innerHTML;
+        btn.innerHTML =
+          '<i class="fas fa-check text-sm"></i><span>Ditambahkan!</span>';
+        btn.classList.add("bg-green-50", "border-green-500", "text-green-600");
+        btn.classList.remove("border-mitsubishi-red", "text-mitsubishi-red");
+        setTimeout(() => {
+          btn.innerHTML = original;
+          btn.classList.remove(
+            "bg-green-50",
+            "border-green-500",
+            "text-green-600",
+          );
+          btn.classList.add("border-mitsubishi-red", "text-mitsubishi-red");
+        }, 1500);
+      }
+
       function saveToProject(productId) {
         const project = prompt("Simpan ke proyek:");
         if (project) alert(`Disimpan ke: ${project}`);
@@ -436,6 +488,70 @@
           alert("Ditambahkan ke perbandingan");
         }
       }
+
+      // ==================== FUNGSI BELI SEKARANG ====================
+      function buyNow() {
+        let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+        const existingItem = cart.find((item) => item.id === currentProductId);
+
+        // Cek stok yang ada dulu
+        let productStock = JSON.parse(
+          localStorage.getItem("productStock") || "{}",
+        );
+        let currentStock =
+          productStock[currentProductId] !== undefined
+            ? productStock[currentProductId]
+            : initialStock;
+
+        if (qty > currentStock) {
+          alert(`Maaf, stok tidak mencukupi. Sisa stok: ${currentStock}`);
+          return;
+        }
+
+        if (existingItem) {
+          existingItem.quantity += qty;
+        } else {
+          cart.push({
+            id: currentProductId,
+            name: "FR-A820-0.4K-1", // Nama produk sesuai di checkout
+            price: 5200000,
+            quantity: qty,
+          });
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        window.location.href = "checkout.html"; // Pindah ke halaman checkout
+      }
+
+      // ==================== UPDATE STOK DINAMIS ====================
+      function updateStockDisplay() {
+        let productStock = JSON.parse(
+          localStorage.getItem("productStock") || "{}",
+        );
+
+        // Inisialisasi stok awal jika belum ada
+        if (productStock[currentProductId] === undefined) {
+          productStock[currentProductId] = initialStock;
+          localStorage.setItem("productStock", JSON.stringify(productStock));
+        }
+
+        const currentStock = productStock[currentProductId];
+        const stockDisplay = document.getElementById("stockDisplay");
+
+        // Update tampilan teks sesuai stok sisa
+        if (currentStock > 0) {
+          stockDisplay.textContent = currentStock + " Unit Tersedia";
+          stockDisplay.className = "text-sm font-semibold text-green-800";
+        } else {
+          stockDisplay.textContent = "Stok Habis";
+          stockDisplay.className = "text-sm font-bold text-mitsubishi-red"; // Ubah merah jika habis
+        }
+      }
+
+      // Jalankan fungsi saat halaman pertama kali dibuka
+      document.addEventListener("DOMContentLoaded", function () {
+        updateStockDisplay();
+      });
     </script>
   </body>
 </html>
