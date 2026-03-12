@@ -128,9 +128,15 @@
         <div class="space-y-4">
           <div class="flex gap-3 pb-3 border-b border-gray-100">
             <div
-              class="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0"
+              class="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden"
             >
-              <i class="fas fa-bolt text-xl text-gray-400"></i>
+              <img
+                src="assets/01-fr-a820-0.4k.jpg"
+                alt="FR-A820-0.4K-1"
+                class="w-full h-full object-cover"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+              />
+              <i class="fas fa-bolt text-xl text-gray-400" style="display: none"></i>
             </div>
             <div class="flex-1">
               <h4 class="font-semibold text-sm text-gray-900">
@@ -154,7 +160,7 @@
         <div class="bg-gray-50 rounded-lg p-3 mb-3">
           <p class="text-sm font-semibold text-gray-900 mb-1">Alamat Tujuan</p>
           <p class="text-xs text-gray-600 leading-relaxed">
-            Stefani Agustina (PT Otomasi Indonesia)<br />
+            Peter (PT Otomasi Indonesia)<br />
             Jl. Sudirman Kav. 28-30, Jakarta Selatan, 12920<br />
             Telp: +62 812 3456 7890
           </p>

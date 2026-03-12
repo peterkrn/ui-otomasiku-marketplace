@@ -64,9 +64,15 @@
     <main class="max-w-3xl mx-auto">
       <div class="bg-white p-6">
         <div
-          class="aspect-square bg-gray-100 rounded-2xl mb-4 flex items-center justify-center relative"
+          class="aspect-square bg-gray-100 rounded-2xl mb-4 flex items-center justify-center relative overflow-hidden"
         >
-          <i class="fas fa-bolt text-6xl text-gray-400"></i>
+          <img
+            src="assets/01-fr-a820-0.4k.jpg"
+            alt="FR-A820-0.4K-1"
+            class="w-full h-full object-contain p-4"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+          />
+          <i class="fas fa-bolt text-6xl text-gray-400" style="display: none"></i>
           <div class="absolute top-4 left-4 flex gap-2">
             <span
               class="bg-mitsubishi-red text-white text-[10px] font-bold px-3 py-1 rounded-full"

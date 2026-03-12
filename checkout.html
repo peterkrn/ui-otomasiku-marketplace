@@ -79,9 +79,15 @@
           data-discount-per-unit="300000"
         >
           <div
-            class="w-20 h-20 bg-gray-100 rounded-xl flex items-center justify-center flex-shrink-0"
+            class="w-20 h-20 bg-gray-100 rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden"
           >
-            <i class="fas fa-bolt text-2xl text-gray-400"></i>
+            <img
+              src="assets/01-fr-a820-0.4k.jpg"
+              alt="FR-A820-0.4K-1"
+              class="w-full h-full object-cover"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+            />
+            <i class="fas fa-bolt text-2xl text-gray-400" style="display: none"></i>
           </div>
           <div class="flex-1">
             <div class="flex justify-between items-start">
@@ -135,9 +141,15 @@
           data-discount-per-unit="0"
         >
           <div
-            class="w-20 h-20 bg-gray-100 rounded-xl flex items-center justify-center flex-shrink-0"
+            class="w-20 h-20 bg-gray-100 rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden"
           >
-            <i class="fas fa-microchip text-2xl text-gray-400"></i>
+            <img
+              src="assets/03-fx5u-32mt-es.jpg"
+              alt="FX5U-32MT/ESS"
+              class="w-full h-full object-cover"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+            />
+            <i class="fas fa-microchip text-2xl text-gray-400" style="display: none"></i>
           </div>
           <div class="flex-1">
             <div class="flex justify-between items-start">
@@ -195,7 +207,7 @@
           </div>
           <div class="flex items-center gap-2 mb-2">
             <h3 class="font-semibold text-sm text-gray-900">
-              Stefani Agustina
+              Peter
             </h3>
             <span
               class="text-[10px] bg-blue-100 text-blue-700 px-1.5 py-0.5 rounded"
@@ -464,7 +476,7 @@
           items: items,
           total: totalText,
           address:
-            "Stefani Agustina — PT Otomasi Indonesia, Jl. Sudirman Kav. 28-30, Jakarta Selatan",
+            "Peter — PT Otomasi Indonesia, Jl. Sudirman Kav. 28-30, Jakarta Selatan",
         };
         orders.push(newOrder);
         localStorage.setItem("orders", JSON.stringify(orders));

@@ -315,7 +315,7 @@
       <div class="flex justify-between items-center mb-4">
         <p class="text-sm text-gray-600">
           Ditemukan
-          <span class="font-bold text-gray-900" id="productCount">12</span>
+          <span class="font-bold text-gray-900" id="productCount">10</span>
           produk
         </p>
         <select
@@ -342,9 +342,15 @@
           data-power="daya-kecil"
         >
           <div
-            class="w-24 h-24 bg-gray-100 rounded-lg flex-shrink-0 flex items-center justify-center"
+            class="w-24 h-24 bg-gray-100 rounded-lg flex-shrink-0 flex items-center justify-center overflow-hidden"
           >
-            <i class="fas fa-bolt text-3xl text-gray-400"></i>
+            <img
+              src="assets/01-fr-a820-0.4k.jpg"
+              alt="FR-A820-0.4K-1"
+              class="w-full h-full object-cover"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+            />
+            <i class="fas fa-bolt text-3xl text-gray-400" style="display: none"></i>
           </div>
           <div class="flex-1">
             <div class="flex justify-between items-start">
@@ -397,9 +403,15 @@
           data-power="daya-kecil"
         >
           <div
-            class="w-24 h-24 bg-gray-100 rounded-lg flex-shrink-0 flex items-center justify-center"
+            class="w-24 h-24 bg-gray-100 rounded-lg flex-shrink-0 flex items-center justify-center overflow-hidden"
           >
-            <i class="fas fa-bolt text-3xl text-gray-400"></i>
+            <img
+              src="assets/02-fr-a820-2.2k.jpg"
+              alt="FR-A820-2.2K-1"
+              class="w-full h-full object-cover"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+            />
+            <i class="fas fa-bolt text-3xl text-gray-400" style="display: none"></i>
           </div>
           <div class="flex-1">
             <div class="flex justify-between items-start">
@@ -437,6 +449,486 @@
               <a
                 href="product-detail.html"
                 class="px-4 py-2 bg-mitsubishi-red text-white text-sm font-semibold rounded-lg hover:bg-red-700 transition-colors"
+                >Detail</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Produk 3 -->
+        <div
+          class="product-card bg-white rounded-xl p-4 shadow-sm border border-gray-100 flex gap-4"
+          data-name="FX5U-32MT/ES"
+          data-price="8800000"
+          data-category="plc"
+          data-brand="mitsubishi"
+          data-stock="ready-stock"
+          data-power="daya-kecil"
+        >
+          <div
+            class="w-24 h-24 bg-gray-100 rounded-lg flex-shrink-0 flex items-center justify-center overflow-hidden"
+          >
+            <img
+              src="assets/03-fx5u-32mt-es.jpg"
+              alt="FX5U-32MT/ES"
+              class="w-full h-full object-cover"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+            />
+            <i class="fas fa-microchip text-3xl text-gray-400" style="display: none"></i>
+          </div>
+          <div class="flex-1">
+            <div class="flex justify-between items-start">
+              <div>
+                <span
+                  class="text-[10px] bg-green-100 text-green-700 px-2 py-0.5 rounded font-medium"
+                  >8 Unit Tersedia</span
+                >
+                <h3 class="font-bold text-gray-900 mt-1">FX5U-32MT/ES</h3>
+                <p class="text-xs text-gray-500">
+                  Mitsubishi PLC CPU 32 I/O • Transistor Output
+                </p>
+              </div>
+              <button
+                onclick="addToCompare('FX5U-32MT/ES')"
+                class="text-gray-400 hover:text-mitsubishi-red transition-colors"
+              >
+                <i class="fas fa-balance-scale"></i>
+              </button>
+            </div>
+            <div class="flex gap-3 mt-2 text-[10px] text-gray-600">
+              <span class="bg-gray-100 px-2 py-0.5 rounded">32 I/O</span>
+              <span class="bg-gray-100 px-2 py-0.5 rounded">Transistor</span>
+            </div>
+            <div class="flex justify-between items-end mt-3">
+              <div>
+                <p class="text-lg font-bold text-mitsubishi-red">
+                  Rp 8.800.000
+                </p>
+                <p class="text-xs text-gray-400">Harga per unit</p>
+              </div>
+              <a
+                href="product-detail.html"
+                class="px-4 py-2 bg-mitsubishi-red text-white text-sm font-semibold rounded-lg hover:bg-red-700 transition-colors"
+                >Detail</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Produk 4 -->
+        <div
+          class="product-card bg-white rounded-xl p-4 shadow-sm border border-gray-100 flex gap-4"
+          data-name="MR-J4-10B"
+          data-price="6800000"
+          data-category="servo"
+          data-brand="mitsubishi"
+          data-stock="low-stock"
+          data-power="daya-kecil"
+        >
+          <div
+            class="w-24 h-24 bg-gray-100 rounded-lg flex-shrink-0 flex items-center justify-center overflow-hidden"
+          >
+            <img
+              src="assets/04-mr-j4-10b.jpg"
+              alt="MR-J4-10B"
+              class="w-full h-full object-cover"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+            />
+            <i class="fas fa-cog text-3xl text-gray-400" style="display: none"></i>
+          </div>
+          <div class="flex-1">
+            <div class="flex justify-between items-start">
+              <div>
+                <span
+                  class="text-[10px] bg-red-100 text-red-700 px-2 py-0.5 rounded font-medium"
+                  >Hanya 3 Unit</span
+                >
+                <h3 class="font-bold text-gray-900 mt-1">MR-J4-10B</h3>
+                <p class="text-xs text-gray-500">
+                  Mitsubishi Servo Amplifier • 100W • SSCNET III/H
+                </p>
+              </div>
+              <button
+                onclick="addToCompare('MR-J4-10B')"
+                class="text-gray-400 hover:text-mitsubishi-red transition-colors"
+              >
+                <i class="fas fa-balance-scale"></i>
+              </button>
+            </div>
+            <div class="flex gap-3 mt-2 text-[10px] text-gray-600">
+              <span class="bg-gray-100 px-2 py-0.5 rounded">100W</span>
+              <span class="bg-gray-100 px-2 py-0.5 rounded">SSCNET</span>
+            </div>
+            <div class="flex justify-between items-end mt-3">
+              <div>
+                <p class="text-lg font-bold text-mitsubishi-red">
+                  Rp 6.800.000
+                </p>
+                <p class="text-xs text-gray-400">Harga per unit</p>
+              </div>
+              <a
+                href="product-detail.html"
+                class="px-4 py-2 bg-mitsubishi-red text-white text-sm font-semibold rounded-lg hover:bg-red-700 transition-colors"
+                >Detail</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Produk 5 -->
+        <div
+          class="product-card bg-white rounded-xl p-4 shadow-sm border border-gray-100 flex gap-4"
+          data-name="FC 302 131B0078"
+          data-price="12500000"
+          data-category="inverter"
+          data-brand="danfoss"
+          data-stock="ready-stock"
+          data-power="daya-kecil"
+        >
+          <div
+            class="w-24 h-24 bg-gray-100 rounded-lg flex-shrink-0 flex items-center justify-center overflow-hidden"
+          >
+            <img
+              src="assets/05-fc-302-1.5kw.jpg"
+              alt="FC 302 131B0078"
+              class="w-full h-full object-cover"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+            />
+            <i class="fas fa-bolt text-3xl text-gray-400" style="display: none"></i>
+          </div>
+          <div class="flex-1">
+            <div class="flex justify-between items-start">
+              <div>
+                <span
+                  class="text-[10px] bg-green-100 text-green-700 px-2 py-0.5 rounded font-medium"
+                  >8 Unit Tersedia</span
+                >
+                <h3 class="font-bold text-gray-900 mt-1">FC 302 131B0078</h3>
+                <p class="text-xs text-gray-500">
+                  Danfoss VLT AutomationDrive • 1.5kW • 380-480V
+                </p>
+              </div>
+              <button
+                onclick="addToCompare('FC-302-131B0078')"
+                class="text-gray-400 hover:text-danfoss-red transition-colors"
+              >
+                <i class="fas fa-balance-scale"></i>
+              </button>
+            </div>
+            <div class="flex gap-3 mt-2 text-[10px] text-gray-600">
+              <span class="bg-gray-100 px-2 py-0.5 rounded">1.5 kW</span>
+              <span class="bg-gray-100 px-2 py-0.5 rounded">380-480V</span>
+            </div>
+            <div class="flex justify-between items-end mt-3">
+              <div>
+                <p class="text-lg font-bold text-danfoss-red">
+                  Rp 12.500.000
+                </p>
+                <p class="text-xs text-gray-400">Harga per unit</p>
+              </div>
+              <a
+                href="product-detail.html"
+                class="px-4 py-2 bg-danfoss-red text-white text-sm font-semibold rounded-lg hover:bg-red-700 transition-colors"
+                >Detail</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Produk 6 -->
+        <div
+          class="product-card bg-white rounded-xl p-4 shadow-sm border border-gray-100 flex gap-4"
+          data-name="FR-D720-0.75K"
+          data-price="3200000"
+          data-category="inverter"
+          data-brand="mitsubishi"
+          data-stock="ready-stock"
+          data-power="daya-kecil"
+        >
+          <div
+            class="w-24 h-24 bg-gray-100 rounded-lg flex-shrink-0 flex items-center justify-center overflow-hidden"
+          >
+            <img
+              src="assets/06-fr-d720-0.75k.jpg"
+              alt="FR-D720-0.75K"
+              class="w-full h-full object-cover"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+            />
+            <i class="fas fa-bolt text-3xl text-gray-400" style="display: none"></i>
+          </div>
+          <div class="flex-1">
+            <div class="flex justify-between items-start">
+              <div>
+                <span
+                  class="text-[10px] bg-green-100 text-green-700 px-2 py-0.5 rounded font-medium"
+                  >24 Unit Tersedia</span
+                >
+                <h3 class="font-bold text-gray-900 mt-1">FR-D720-0.75K</h3>
+                <p class="text-xs text-gray-500">
+                  Mitsubishi Inverter FR-D700 • 0.75kW • 200V
+                </p>
+              </div>
+              <button
+                onclick="addToCompare('FR-D720-0.75K')"
+                class="text-gray-400 hover:text-mitsubishi-red transition-colors"
+              >
+                <i class="fas fa-balance-scale"></i>
+              </button>
+            </div>
+            <div class="flex gap-3 mt-2 text-[10px] text-gray-600">
+              <span class="bg-gray-100 px-2 py-0.5 rounded">0.75 kW</span>
+              <span class="bg-gray-100 px-2 py-0.5 rounded">200V</span>
+            </div>
+            <div class="flex justify-between items-end mt-3">
+              <div>
+                <p class="text-lg font-bold text-mitsubishi-red">
+                  Rp 3.200.000
+                </p>
+                <p class="text-xs text-gray-400">Harga per unit</p>
+              </div>
+              <a
+                href="product-detail.html"
+                class="px-4 py-2 bg-mitsubishi-red text-white text-sm font-semibold rounded-lg hover:bg-red-700 transition-colors"
+                >Detail</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Produk 7 -->
+        <div
+          class="product-card bg-white rounded-xl p-4 shadow-sm border border-gray-100 flex gap-4"
+          data-name="FX3G-24MR/ES-A"
+          data-price="5800000"
+          data-category="plc"
+          data-brand="mitsubishi"
+          data-stock="ready-stock"
+          data-power="daya-kecil"
+        >
+          <div
+            class="w-24 h-24 bg-gray-100 rounded-lg flex-shrink-0 flex items-center justify-center overflow-hidden"
+          >
+            <img
+              src="assets/07-fx3g-24mr-es.jpg"
+              alt="FX3G-24MR/ES-A"
+              class="w-full h-full object-cover"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+            />
+            <i class="fas fa-microchip text-3xl text-gray-400" style="display: none"></i>
+          </div>
+          <div class="flex-1">
+            <div class="flex justify-between items-start">
+              <div>
+                <span
+                  class="text-[10px] bg-green-100 text-green-700 px-2 py-0.5 rounded font-medium"
+                  >10 Unit Tersedia</span
+                >
+                <h3 class="font-bold text-gray-900 mt-1">FX3G-24MR/ES-A</h3>
+                <p class="text-xs text-gray-500">
+                  Mitsubishi PLC CPU 24 I/O • Relay Output
+                </p>
+              </div>
+              <button
+                onclick="addToCompare('FX3G-24MR/ES-A')"
+                class="text-gray-400 hover:text-mitsubishi-red transition-colors"
+              >
+                <i class="fas fa-balance-scale"></i>
+              </button>
+            </div>
+            <div class="flex gap-3 mt-2 text-[10px] text-gray-600">
+              <span class="bg-gray-100 px-2 py-0.5 rounded">24 I/O</span>
+              <span class="bg-gray-100 px-2 py-0.5 rounded">Relay</span>
+            </div>
+            <div class="flex justify-between items-end mt-3">
+              <div>
+                <p class="text-lg font-bold text-mitsubishi-red">
+                  Rp 5.800.000
+                </p>
+                <p class="text-xs text-gray-400">Harga per unit</p>
+              </div>
+              <a
+                href="product-detail.html"
+                class="px-4 py-2 bg-mitsubishi-red text-white text-sm font-semibold rounded-lg hover:bg-red-700 transition-colors"
+                >Detail</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Produk 8 -->
+        <div
+          class="product-card bg-white rounded-xl p-4 shadow-sm border border-gray-100 flex gap-4"
+          data-name="GT2103-PMBDS"
+          data-price="6500000"
+          data-category="hmi"
+          data-brand="mitsubishi"
+          data-stock="ready-stock"
+          data-power="daya-kecil"
+        >
+          <div
+            class="w-24 h-24 bg-gray-100 rounded-lg flex-shrink-0 flex items-center justify-center overflow-hidden"
+          >
+            <img
+              src="assets/08-gt2103-pmbds.jpg"
+              alt="GT2103-PMBDS"
+              class="w-full h-full object-cover"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+            />
+            <i class="fas fa-desktop text-3xl text-gray-400" style="display: none"></i>
+          </div>
+          <div class="flex-1">
+            <div class="flex justify-between items-start">
+              <div>
+                <span
+                  class="text-[10px] bg-green-100 text-green-700 px-2 py-0.5 rounded font-medium"
+                  >12 Unit Tersedia</span
+                >
+                <h3 class="font-bold text-gray-900 mt-1">GT2103-PMBDS</h3>
+                <p class="text-xs text-gray-500">
+                  Mitsubishi HMI GOT2000 • 3.8" TFT
+                </p>
+              </div>
+              <button
+                onclick="addToCompare('GT2103-PMBDS')"
+                class="text-gray-400 hover:text-mitsubishi-red transition-colors"
+              >
+                <i class="fas fa-balance-scale"></i>
+              </button>
+            </div>
+            <div class="flex gap-3 mt-2 text-[10px] text-gray-600">
+              <span class="bg-gray-100 px-2 py-0.5 rounded">3.8"</span>
+              <span class="bg-gray-100 px-2 py-0.5 rounded">TFT</span>
+            </div>
+            <div class="flex justify-between items-end mt-3">
+              <div>
+                <p class="text-lg font-bold text-mitsubishi-red">
+                  Rp 6.500.000
+                </p>
+                <p class="text-xs text-gray-400">Harga per unit</p>
+              </div>
+              <a
+                href="product-detail.html"
+                class="px-4 py-2 bg-mitsubishi-red text-white text-sm font-semibold rounded-lg hover:bg-red-700 transition-colors"
+                >Detail</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Produk 9 -->
+        <div
+          class="product-card bg-white rounded-xl p-4 shadow-sm border border-gray-100 flex gap-4"
+          data-name="MR-J4-10A"
+          data-price="6200000"
+          data-category="servo"
+          data-brand="mitsubishi"
+          data-stock="ready-stock"
+          data-power="daya-kecil"
+        >
+          <div
+            class="w-24 h-24 bg-gray-100 rounded-lg flex-shrink-0 flex items-center justify-center overflow-hidden"
+          >
+            <img
+              src="assets/09-mr-j4-10a.jpg"
+              alt="MR-J4-10A"
+              class="w-full h-full object-cover"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+            />
+            <i class="fas fa-cog text-3xl text-gray-400" style="display: none"></i>
+          </div>
+          <div class="flex-1">
+            <div class="flex justify-between items-start">
+              <div>
+                <span
+                  class="text-[10px] bg-green-100 text-green-700 px-2 py-0.5 rounded font-medium"
+                  >10 Unit Tersedia</span
+                >
+                <h3 class="font-bold text-gray-900 mt-1">MR-J4-10A</h3>
+                <p class="text-xs text-gray-500">
+                  Mitsubishi Servo Amplifier • 100W • Standalone
+                </p>
+              </div>
+              <button
+                onclick="addToCompare('MR-J4-10A')"
+                class="text-gray-400 hover:text-mitsubishi-red transition-colors"
+              >
+                <i class="fas fa-balance-scale"></i>
+              </button>
+            </div>
+            <div class="flex gap-3 mt-2 text-[10px] text-gray-600">
+              <span class="bg-gray-100 px-2 py-0.5 rounded">100W</span>
+              <span class="bg-gray-100 px-2 py-0.5 rounded">Standalone</span>
+            </div>
+            <div class="flex justify-between items-end mt-3">
+              <div>
+                <p class="text-lg font-bold text-mitsubishi-red">
+                  Rp 6.200.000
+                </p>
+                <p class="text-xs text-gray-400">Harga per unit</p>
+              </div>
+              <a
+                href="product-detail.html"
+                class="px-4 py-2 bg-mitsubishi-red text-white text-sm font-semibold rounded-lg hover:bg-red-700 transition-colors"
+                >Detail</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Produk 10 -->
+        <div
+          class="product-card bg-white rounded-xl p-4 shadow-sm border border-gray-100 flex gap-4"
+          data-name="FC 051 132F0003"
+          data-price="3200000"
+          data-category="inverter"
+          data-brand="danfoss"
+          data-stock="ready-stock"
+          data-power="daya-kecil"
+        >
+          <div
+            class="w-24 h-24 bg-gray-100 rounded-lg flex-shrink-0 flex items-center justify-center overflow-hidden"
+          >
+            <img
+              src="assets/10-fc-051-0.75kw.jpg"
+              alt="FC 051 132F0003"
+              class="w-full h-full object-cover"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+            />
+            <i class="fas fa-bolt text-3xl text-gray-400" style="display: none"></i>
+          </div>
+          <div class="flex-1">
+            <div class="flex justify-between items-start">
+              <div>
+                <span
+                  class="text-[10px] bg-green-100 text-green-700 px-2 py-0.5 rounded font-medium"
+                  >25 Unit Tersedia</span
+                >
+                <h3 class="font-bold text-gray-900 mt-1">FC 051 132F0003</h3>
+                <p class="text-xs text-gray-500">
+                  Danfoss VLT Micro Drive • 0.75kW • 1-phase
+                </p>
+              </div>
+              <button
+                onclick="addToCompare('FC-051-132F0003')"
+                class="text-gray-400 hover:text-danfoss-red transition-colors"
+              >
+                <i class="fas fa-balance-scale"></i>
+              </button>
+            </div>
+            <div class="flex gap-3 mt-2 text-[10px] text-gray-600">
+              <span class="bg-gray-100 px-2 py-0.5 rounded">0.75 kW</span>
+              <span class="bg-gray-100 px-2 py-0.5 rounded">1-phase</span>
+            </div>
+            <div class="flex justify-between items-end mt-3">
+              <div>
+                <p class="text-lg font-bold text-danfoss-red">
+                  Rp 3.200.000
+                </p>
+                <p class="text-xs text-gray-400">Harga per unit</p>
+              </div>
+              <a
+                href="product-detail.html"
+                class="px-4 py-2 bg-danfoss-red text-white text-sm font-semibold rounded-lg hover:bg-red-700 transition-colors"
                 >Detail</a
               >
             </div>
