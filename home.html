@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Beranda - Oseï</title>
+    <title>Beranda - Otomasiku</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -50,7 +50,7 @@
         box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
       }
 
-      /* Toast Notification */
+      /* Toast Notification - FIX SUSah KLIK */
       .toast {
         position: fixed;
         bottom: 100px;
@@ -68,21 +68,16 @@
         display: flex;
         align-items: center;
         gap: 8px;
+        pointer-events: none; /* Agar tidak menghalangi klik saat tersembunyi */
       }
       .toast.show {
         transform: translateX(-50%) translateY(0);
         opacity: 1;
-      }
-      .toast.success {
-        background: #10b981;
-      }
-      .toast.error {
-        background: #ef4444;
+        pointer-events: auto; /* Bisa diklik saat muncul (opsional) */
       }
     </style>
   </head>
   <body class="bg-gray-50 pb-24">
-    <!-- Toast Notification -->
     <div id="toast" class="toast">
       <i class="fas fa-check-circle"></i>
       <span id="toastMessage">Produk ditambahkan ke keranjang</span>
@@ -223,7 +218,6 @@
         class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
         id="productGrid"
       >
-        <!-- Product 1: FR-A820-0.4K -->
         <div
           class="product-card bg-white rounded-2xl p-3 shadow-sm border border-gray-100 relative group"
           data-brand="mitsubishi"
@@ -235,6 +229,8 @@
           <div class="absolute top-2 left-2 z-10">
             <span
               class="bg-green-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full"
+              id="stock-FR-A820-0.4K"
+              data-initial="24"
               >24 Unit</span
             >
           </div>
@@ -268,7 +264,6 @@
           </button>
         </div>
 
-        <!-- Product 2: FX5U-32MT/ESS -->
         <div
           class="product-card bg-white rounded-2xl p-3 shadow-sm border border-gray-100 relative group"
           data-brand="mitsubishi"
@@ -280,6 +275,8 @@
           <div class="absolute top-2 left-2 z-10">
             <span
               class="bg-orange-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full"
+              id="stock-FX5U-32MT/ESS"
+              data-initial="0"
               >Indent 14 Hari</span
             >
           </div>
@@ -313,7 +310,6 @@
           </button>
         </div>
 
-        <!-- Product 3: FC-302P1K5 -->
         <div
           class="product-card bg-white rounded-2xl p-3 shadow-sm border border-gray-100 relative group"
           data-brand="danfoss"
@@ -325,6 +321,8 @@
           <div class="absolute top-2 left-2 z-10">
             <span
               class="bg-green-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full"
+              id="stock-FC-302P1K5"
+              data-initial="8"
               >8 Unit</span
             >
           </div>
@@ -358,7 +356,6 @@
           </button>
         </div>
 
-        <!-- Product 4: MR-J4-10B -->
         <div
           class="product-card bg-white rounded-2xl p-3 shadow-sm border border-gray-100 relative group"
           data-brand="mitsubishi"
@@ -370,6 +367,8 @@
           <div class="absolute top-2 left-2 z-10">
             <span
               class="bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full"
+              id="stock-MR-J4-10B"
+              data-initial="3"
               >Hanya 3 Unit</span
             >
           </div>
@@ -437,35 +436,40 @@
     </div>
 
     <nav
-      class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-6 py-3 z-40"
+      class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-40"
+      style="padding-bottom: env(safe-area-inset-bottom)"
     >
-      <div class="max-w-md mx-auto flex justify-between items-center">
+      <div class="flex items-stretch">
         <a
           href="home.html"
-          class="flex flex-col items-center gap-1 text-mitsubishi-red"
+          class="flex flex-col items-center justify-center gap-1 text-mitsubishi-red py-3 px-4 flex-1 min-h-[56px]"
+          style="touch-action: manipulation"
         >
-          <i class="fas fa-home text-lg"></i>
+          <i class="fas fa-home text-xl"></i>
           <span class="text-[10px] font-medium">Beranda</span>
         </a>
         <a
           href="search-results.html"
-          class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-600 transition-colors"
+          class="flex flex-col items-center justify-center gap-1 text-gray-400 hover:text-gray-600 py-3 px-4 flex-1 min-h-[56px]"
+          style="touch-action: manipulation"
         >
-          <i class="fas fa-search text-lg"></i>
+          <i class="fas fa-search text-xl"></i>
           <span class="text-[10px] font-medium">Cari</span>
         </a>
         <a
           href="projects.html"
-          class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-600 transition-colors"
+          class="flex flex-col items-center justify-center gap-1 text-gray-400 hover:text-gray-600 py-3 px-4 flex-1 min-h-[56px]"
+          style="touch-action: manipulation"
         >
-          <i class="fas fa-folder text-lg"></i>
+          <i class="fas fa-folder text-xl"></i>
           <span class="text-[10px] font-medium">Proyek</span>
         </a>
         <a
           href="profile.html"
-          class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-600 transition-colors"
+          class="flex flex-col items-center justify-center gap-1 text-gray-400 hover:text-gray-600 py-3 px-4 flex-1 min-h-[56px]"
+          style="touch-action: manipulation"
         >
-          <i class="fas fa-user text-lg"></i>
+          <i class="fas fa-user text-xl"></i>
           <span class="text-[10px] font-medium">Profil</span>
         </a>
       </div>
@@ -505,9 +509,38 @@
       // ==================== CART FUNCTIONALITY ====================
       let cart = JSON.parse(localStorage.getItem("cart") || "[]");
 
+      const initialStock = {
+        "FR-A820-0.4K": 24,
+        "FX5U-32MT/ESS": 0,
+        "FC-302P1K5": 8,
+        "MR-J4-10B": 3,
+      };
+
+      function updateStockBadges() {
+        document.querySelectorAll("[id^='stock-']").forEach((badge) => {
+          const productId = badge.id.replace("stock-", "");
+          const initial = initialStock[productId];
+          if (!initial) return;
+          const inCart = cart.find((i) => i.id === productId);
+          const remaining = Math.max(
+            0,
+            initial - (inCart ? inCart.quantity : 0),
+          );
+          if (remaining === 0) {
+            badge.style.backgroundColor = "#9CA3AF";
+            badge.textContent = "Stok Habis";
+          } else if (remaining <= 3) {
+            badge.style.backgroundColor = "#EF4444";
+            badge.textContent = "Hanya " + remaining + " Unit";
+          } else {
+            badge.style.backgroundColor = "#22C55E";
+            badge.textContent = remaining + " Unit";
+          }
+        });
+      }
+
       function addToCart(productId, productName, price) {
         const existingItem = cart.find((item) => item.id === productId);
-
         if (existingItem) {
           existingItem.quantity += 1;
         } else {
@@ -519,12 +552,10 @@
             addedAt: new Date().toISOString(),
           });
         }
-
         localStorage.setItem("cart", JSON.stringify(cart));
         updateCartCount();
+        updateStockBadges();
         showToast(`${productName} ditambahkan ke keranjang`, "success");
-
-        // Animate cart icon
         const cartIcon = document.querySelector(".fa-shopping-cart");
         cartIcon.parentElement.classList.add("scale-110");
         setTimeout(
@@ -536,7 +567,6 @@
       function updateCartCount() {
         const cartCount = document.getElementById("cartCount");
         const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-
         if (totalItems > 0) {
           cartCount.textContent = totalItems;
           cartCount.classList.remove("hidden");
@@ -549,7 +579,12 @@
         cart = cart.filter((item) => item.id !== productId);
         localStorage.setItem("cart", JSON.stringify(cart));
         updateCartCount();
+        updateStockBadges();
       }
+
+      // Sync on page load
+      updateCartCount();
+      updateStockBadges();
 
       // ==================== COMPARE FUNCTIONALITY ====================
       let compareList = JSON.parse(localStorage.getItem("compareList") || "[]");
