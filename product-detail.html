@@ -336,21 +336,20 @@
         </div>
         <button
           onclick="saveToProject('FR-A820-0.4K')"
-          class="w-12 h-12 border-2 border-gray-200 rounded-xl flex items-center justify-center text-gray-600 hover:border-mitsubishi-red hover:text-mitsubishi-red"
+          class="w-14 h-12 border-2 border-gray-200 rounded-xl flex items-center justify-center text-gray-600 hover:border-mitsubishi-red hover:text-mitsubishi-red flex-shrink-0"
         >
           <i class="far fa-bookmark text-lg"></i>
         </button>
         <button
           id="addCartBtn"
           onclick="addToCartFromDetail()"
-          class="flex-1 border-2 border-mitsubishi-red text-mitsubishi-red font-bold py-3 rounded-xl flex items-center justify-center gap-2 hover:bg-red-50 active:scale-[0.98] transition-all"
+          class="w-14 h-12 border-2 border-mitsubishi-red text-mitsubishi-red rounded-xl flex items-center justify-center hover:bg-red-50 active:scale-[0.98] transition-all flex-shrink-0"
         >
-          <i class="fas fa-shopping-cart text-sm"></i>
-          <span>Keranjang</span>
+          <i class="fas fa-shopping-cart text-lg"></i>
         </button>
         <button
           onclick="buyNow()"
-          class="flex-1 bg-mitsubishi-red hover:bg-red-700 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 active:scale-[0.98] transition-all"
+          class="flex-1 bg-mitsubishi-red hover:bg-red-700 text-white font-bold py-3 px-6 rounded-xl flex items-center justify-center gap-2 active:scale-[0.98] transition-all"
         >
           <span>Beli</span>
           <i class="fas fa-arrow-right text-sm"></i>
@@ -463,7 +462,7 @@
         const btn = document.getElementById("addCartBtn");
         const original = btn.innerHTML;
         btn.innerHTML =
-          '<i class="fas fa-check text-sm"></i><span>Ditambahkan!</span>';
+          '<i class="fas fa-check text-lg"></i>';
         btn.classList.add("bg-green-50", "border-green-500", "text-green-600");
         btn.classList.remove("border-mitsubishi-red", "text-mitsubishi-red");
         setTimeout(() => {
