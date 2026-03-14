@@ -13,6 +13,8 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="assets/dark-mode.css" />
+    <script src="assets/dark-mode.js"></script>
     <script>
       tailwind.config = {
         theme: {
@@ -29,6 +31,9 @@
       body {
         font-family: "Inter", sans-serif;
         background-color: #f9fafb;
+      }
+      .dark body {
+        background-color: #0f0f0f !important;
       }
       .compare-grid {
         display: grid;
@@ -82,7 +87,7 @@
               class="aspect-square bg-gray-100 rounded-lg mb-3 flex items-center justify-center overflow-hidden"
             >
               <img
-                src="assets/01-fr-a820-0.4k.jpg"
+                src="../assets/01-fr-a820-0.4k.jpg"
                 alt="FR-A820-0.4K"
                 class="w-full h-full object-cover"
                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
@@ -109,7 +114,7 @@
               class="aspect-square bg-gray-100 rounded-lg mb-3 flex items-center justify-center overflow-hidden"
             >
               <img
-                src="assets/02-fr-a820-2.2k.jpg"
+                src="../assets/02-fr-a820-2.2k.jpg"
                 alt="FR-A820-2.2K"
                 class="w-full h-full object-cover"
                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"

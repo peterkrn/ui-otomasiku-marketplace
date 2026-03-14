@@ -13,6 +13,8 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="assets/dark-mode.css" />
+    <script src="assets/dark-mode.js"></script>
     <script>
       tailwind.config = {
         theme: {
@@ -29,6 +31,9 @@
       body {
         font-family: "Inter", sans-serif;
         background-color: #f9fafb;
+      }
+      .dark body {
+        background-color: #0f0f0f !important;
       }
       .tab-active {
         border-bottom: 2px solid #e7192d;
@@ -67,7 +72,7 @@
           class="aspect-square bg-gray-100 rounded-2xl mb-4 flex items-center justify-center relative overflow-hidden"
         >
           <img
-            src="assets/01-fr-a820-0.4k.jpg"
+            src="../assets/01-fr-a820-0.4k.jpg"
             alt="FR-A820-0.4K-1"
             class="w-full h-full object-contain p-4"
             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
@@ -136,7 +141,7 @@
           >
             <div class="flex items-center gap-2">
               <div>
-                <p class="font-semibold text-sm">6 - 10 Unit</p>
+                <p class="font-semibold text-sm text-green-800">6 - 10 Unit</p>
                 <p class="text-xs text-green-600">Hemat Rp 400rb/unit</p>
               </div>
               <span

@@ -13,6 +13,8 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="assets/dark-mode.css" />
+    <script src="assets/dark-mode.js"></script>
     <script>
       tailwind.config = {
         theme: {
@@ -34,17 +36,28 @@
         font-family: "Inter", sans-serif;
         background-color: #fafafa;
       }
+      .dark body {
+        background-color: #0f0f0f !important;
+      }
       .address-radio {
         appearance: none;
         -webkit-appearance: none;
       }
       .address-card {
-        border-color: transparent;
+        border-color: #374151;
         background-color: #fff;
       }
+      .dark .address-card {
+        background-color: #1a1a1a;
+        border-color: #374151;
+      }
       .address-card.selected {
-        border-color: #e7192d;
+        border-color: #e7192d !important;
         background-color: #fef2f2;
+      }
+      .dark .address-card.selected {
+        background-color: #2d1a1a;
+        border-color: #e7192d !important;
       }
       .address-card .radio-circle {
         border-color: #d1d5db;
@@ -249,14 +262,14 @@
         </div>
         <div class="grid grid-cols-2 gap-3 mb-4">
           <div>
-            <label class="block text-xs font-medium text-gray-700 mb-1.5"
+            <label class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1.5"
               >Kota</label
             >
             <input
               id="inputKota"
               type="text"
               placeholder="Jakarta Selatan"
-              class="w-full bg-white border border-gray-300 rounded-lg py-2.5 px-3 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-mitsubishi-red focus:ring-1 focus:ring-mitsubishi-red"
+              class="w-full bg-white border border-gray-300 dark:border-gray-700 rounded-lg py-2.5 px-3 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-mitsubishi-red focus:ring-1 focus:ring-mitsubishi-red"
             />
           </div>
           <div>
@@ -267,9 +280,44 @@
               id="inputKodePos"
               type="text"
               placeholder="12920"
-              class="w-full bg-white border border-gray-300 rounded-lg py-2.5 px-3 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-mitsubishi-red focus:ring-1 focus:ring-mitsubishi-red"
+              class="w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg py-2.5 px-3 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-mitsubishi-red focus:ring-1 focus:ring-mitsubishi-red"
             />
           </div>
+        </div>
+        <div class="grid grid-cols-2 gap-3 mb-4">
+          <div>
+            <label class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1.5"
+              >Kecamatan</label
+            >
+            <input
+              id="inputKecamatan"
+              type="text"
+              placeholder="Setiabudi"
+              class="w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg py-2.5 px-3 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-mitsubishi-red focus:ring-1 focus:ring-mitsubishi-red"
+            />
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1.5"
+              >Desa / Kelurahan</label
+            >
+            <input
+              id="inputKelurahan"
+              type="text"
+              placeholder="Karet"
+              class="w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg py-2.5 px-3 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-mitsubishi-red focus:ring-1 focus:ring-mitsubishi-red"
+            />
+          </div>
+        </div>
+        <div class="mb-4">
+          <label class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1.5"
+            >Catatan untuk Pengirim (Opsional)</label
+          >
+          <input
+            id="inputCatatan"
+            type="text"
+            placeholder="Contoh: Titip di pos satpam"
+            class="w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg py-2.5 px-3 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-mitsubishi-red focus:ring-1 focus:ring-mitsubishi-red"
+          />
         </div>
         <!-- Error message -->
         <p id="formError" class="hidden text-xs text-red-500 mb-3">
