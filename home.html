@@ -81,6 +81,23 @@
         opacity: 1;
         pointer-events: auto;
       }
+      /* Filter chips */
+      .filter-btn {
+        background-color: #e5e7eb;
+        color: #374151;
+      }
+      .filter-btn.active {
+        background-color: #e7192d !important;
+        color: #ffffff !important;
+      }
+      html.dark .filter-btn {
+        background-color: #3a3a3a !important;
+        color: #e5e5e5 !important;
+      }
+      html.dark .filter-btn.active {
+        background-color: #e7192d !important;
+        color: #ffffff !important;
+      }
       /* Tombol Tambah: state setelah diklik
          Pakai 2 rule agar specificity-nya lebih tinggi dari
          .dark .bg-gray-100 di dark-mode.css */
@@ -174,30 +191,24 @@
           >
             Semua
           </button>
-          <button
-            onclick="filterProducts('mitsubishi')"
-            class="filter-btn px-4 py-1.5 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs font-medium rounded-full whitespace-nowrap transition-all"
-            data-filter="mitsubishi"
-          >
-            Mitsubishi
-          </button>
+
           <button
             onclick="filterProducts('inverter')"
-            class="filter-btn px-4 py-1.5 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs font-medium rounded-full whitespace-nowrap transition-all"
+            class="filter-btn px-4 py-1.5 bg-gray-200 dark:bg-gray-700 text-mitsubishi-red text-xs font-medium rounded-full whitespace-nowrap transition-all"
             data-filter="inverter"
           >
             Inverter
           </button>
           <button
             onclick="filterProducts('plc')"
-            class="filter-btn px-4 py-1.5 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs font-medium rounded-full whitespace-nowrap transition-all"
+            class="filter-btn px-4 py-1.5 bg-gray-200 dark:bg-gray-700 text-mitsubishi-red text-xs font-medium rounded-full whitespace-nowrap transition-all"
             data-filter="plc"
           >
             PLC
           </button>
           <button
             onclick="filterProducts('servo')"
-            class="filter-btn px-4 py-1.5 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs font-medium rounded-full whitespace-nowrap transition-all"
+            class="filter-btn px-4 py-1.5 bg-gray-200 dark:bg-gray-700 text-mitsubishi-red text-xs font-medium rounded-full whitespace-nowrap transition-all"
             data-filter="servo"
           >
             Servo
@@ -283,9 +294,7 @@
             >
               Inverter 0.4kW 200V
             </p>
-            <p class="font-bold text-mitsubishi-red dark:text-red-400 text-sm">
-              Rp 5.200.000
-            </p>
+            <p class="font-bold text-mitsubishi-red text-sm">Rp 5.200.000</p>
           </a>
           <button
             onclick="addToCart('FR-A820-0.4K', 'FR-A820-0.4K', 5200000, this)"
@@ -345,9 +354,7 @@
             >
               PLC CPU 32 I/O
             </p>
-            <p class="font-bold text-mitsubishi-red dark:text-red-400 text-sm">
-              Rp 8.500.000
-            </p>
+            <p class="font-bold text-mitsubishi-red text-sm">Rp 8.500.000</p>
           </a>
           <button
             onclick="addToCart('FX5U-32MT/ESS', 'FX5U-32MT/ESS', 8500000, this)"
@@ -407,9 +414,7 @@
             >
               Danfoss VLT 1.5kW
             </p>
-            <p class="font-bold text-mitsubishi-red dark:text-red-400 text-sm">
-              Rp 12.500.000
-            </p>
+            <p class="font-bold text-mitsubishi-red text-sm">Rp 12.500.000</p>
           </a>
           <button
             onclick="addToCart('FC-302P1K5', 'FC-302P1K5', 12500000, this)"
@@ -894,13 +899,12 @@
         const buttons = document.querySelectorAll(".filter-btn");
         const products = document.querySelectorAll(".product-card");
 
+        // Cukup toggle class 'active' — CSS yang handle warna
         buttons.forEach((btn) => {
           if (btn.dataset.filter === category) {
-            btn.classList.remove("bg-gray-200", "text-gray-700");
-            btn.classList.add("bg-mitsubishi-red", "text-white");
+            btn.classList.add("active");
           } else {
-            btn.classList.add("bg-gray-200", "text-gray-700");
-            btn.classList.remove("bg-mitsubishi-red", "text-white");
+            btn.classList.remove("active");
           }
         });
 
