@@ -17,7 +17,7 @@
     <script src="assets/dark-mode.js"></script>
     <script>
       tailwind.config = {
-        darkMode: 'class',
+        darkMode: "class",
         theme: {
           extend: {
             colors: {
@@ -40,6 +40,20 @@
       }
       .dark body {
         background-color: #0f0f0f !important;
+      }
+      /* Radio dots - dark mode */
+      .radio-dot {
+        background-color: white;
+      }
+      html.dark .radio-dot {
+        background-color: #1e1e1e !important;
+      }
+      html.dark .radio-dot.border-bca-blue,
+      html.dark .radio-dot.border-\[\#0066AE\] {
+        border-color: #3b82f6 !important;
+      }
+      html.dark .radio-dot.border-mitsubishi-red {
+        border-color: #e7192d !important;
       }
       .checkbox-custom:checked {
         background-color: #e7192d;
@@ -91,9 +105,15 @@
               src="../assets/01-fr-a820-0.4k.jpg"
               alt="FR-A820-0.4K-1"
               class="w-full h-full object-cover"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
             />
-            <i class="fas fa-bolt text-2xl text-gray-400" style="display: none"></i>
+            <i
+              class="fas fa-bolt text-2xl text-gray-400"
+              style="display: none"
+            ></i>
           </div>
           <div class="flex-1">
             <div class="flex justify-between items-start">
@@ -153,9 +173,15 @@
               src="../assets/03-fx5u-32mt-es.jpg"
               alt="FX5U-32MT/ESS"
               class="w-full h-full object-cover"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
             />
-            <i class="fas fa-microchip text-2xl text-gray-400" style="display: none"></i>
+            <i
+              class="fas fa-microchip text-2xl text-gray-400"
+              style="display: none"
+            ></i>
           </div>
           <div class="flex-1">
             <div class="flex justify-between items-start">
@@ -212,9 +238,7 @@
             <i class="fas fa-map-marker-alt"></i>
           </div>
           <div class="flex items-center gap-2 mb-2">
-            <h3 class="font-semibold text-sm text-gray-900">
-              Stefani
-            </h3>
+            <h3 class="font-semibold text-sm text-gray-900">Stefani</h3>
             <span
               class="text-[10px] bg-blue-100 text-blue-700 px-1.5 py-0.5 rounded"
               >Utama</span
@@ -250,7 +274,7 @@
           >
             <div class="flex items-center gap-3">
               <div
-                class="w-5 h-5 rounded-full border-4 border-bca-blue bg-white dark:bg-blue-300 flex-shrink-0"
+                class="radio-dot w-5 h-5 rounded-full border-4 border-bca-blue flex-shrink-0"
               ></div>
               <div>
                 <span class="font-semibold text-sm block dark:text-blue-100"
@@ -286,22 +310,28 @@
       <section
         class="bg-white dark:bg-mitsubishi-dark rounded-2xl p-5 shadow-sm border border-gray-100 dark:border-gray-800"
       >
-        <h2 class="font-bold text-lg text-gray-900 dark:text-white mb-4">Pengiriman</h2>
+        <h2 class="font-bold text-lg text-gray-900 dark:text-white mb-4">
+          Pengiriman
+        </h2>
         <div
           class="flex items-center justify-between p-4 border-2 border-mitsubishi-red bg-red-50/30 dark:bg-red-900/20 rounded-xl"
         >
           <div class="flex items-center gap-3">
             <div
-              class="w-5 h-5 rounded-full border-4 border-mitsubishi-red bg-white dark:bg-white flex-shrink-0"
+              class="radio-dot w-5 h-5 rounded-full border-4 border-mitsubishi-red flex-shrink-0"
             ></div>
             <div>
               <span class="font-semibold text-sm block dark:text-red-100"
                 >Pengiriman Standar</span
               >
-              <span class="text-xs text-gray-500 dark:text-gray-400">Estimasi 3-5 hari kerja</span>
+              <span class="text-xs text-gray-500 dark:text-gray-400"
+                >Estimasi 3-5 hari kerja</span
+              >
             </div>
           </div>
-          <span class="font-bold text-green-600 dark:text-green-400 text-sm">GRATIS</span>
+          <span class="font-bold text-green-600 dark:text-green-400 text-sm"
+            >GRATIS</span
+          >
         </div>
       </section>
 
