@@ -67,6 +67,14 @@
         border-color: #e7192d;
         border-width: 5px;
       }
+      /* Radio circle - dark mode visibility */
+      html.dark .radio-circle {
+        background-color: #1e1e1e !important;
+        border-color: #888888 !important;
+      }
+      html.dark .address-card.selected .radio-circle {
+        border-color: #e7192d !important;
+      }
     </style>
   </head>
   <body class="bg-mitsubishi-light text-gray-800 pb-32">
@@ -104,7 +112,7 @@
             >
               <div class="mt-1">
                 <div
-                  class="radio-circle w-5 h-5 rounded-full border-[5px] border-mitsubishi-red bg-white transition-all"
+                  class="radio-circle w-5 h-5 rounded-full border-[5px] border-mitsubishi-red transition-all"
                 ></div>
               </div>
               <div class="flex-1">
@@ -156,7 +164,7 @@
             >
               <div class="mt-1">
                 <div
-                  class="radio-circle w-5 h-5 rounded-full border-2 border-gray-300 bg-white transition-all"
+                  class="radio-circle w-5 h-5 rounded-full border-2 border-gray-300 transition-all"
                 ></div>
               </div>
               <div class="flex-1">
@@ -262,7 +270,8 @@
         </div>
         <div class="grid grid-cols-2 gap-3 mb-4">
           <div>
-            <label class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1.5"
+            <label
+              class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1.5"
               >Kota</label
             >
             <input
@@ -286,7 +295,8 @@
         </div>
         <div class="grid grid-cols-2 gap-3 mb-4">
           <div>
-            <label class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1.5"
+            <label
+              class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1.5"
               >Kecamatan</label
             >
             <input
@@ -297,7 +307,8 @@
             />
           </div>
           <div>
-            <label class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1.5"
+            <label
+              class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1.5"
               >Desa / Kelurahan</label
             >
             <input
@@ -309,7 +320,8 @@
           </div>
         </div>
         <div class="mb-4">
-          <label class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1.5"
+          <label
+            class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1.5"
             >Catatan untuk Pengirim (Opsional)</label
           >
           <input
@@ -435,7 +447,7 @@
                 <input type="radio" name="address" class="address-radio absolute opacity-0" value="${slug}">
                 <div class="address-card bg-white p-4 rounded-xl border-2 shadow-sm transition-all duration-200 flex items-start gap-3" style="opacity:0;transform:translateY(8px)">
                     <div class="mt-1">
-                        <div class="radio-circle w-5 h-5 rounded-full border-2 border-gray-300 bg-white transition-all"></div>
+                        <div class="radio-circle w-5 h-5 rounded-full border-2 border-gray-300 transition-all"></div>
                     </div>
                     <div class="flex-1">
                         <div class="flex justify-between items-start">
