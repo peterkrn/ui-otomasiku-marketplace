@@ -17,7 +17,7 @@
     <script src="assets/dark-mode.js"></script>
     <script>
       tailwind.config = {
-        darkMode: 'class',
+        darkMode: "class",
         theme: {
           extend: {
             colors: {
@@ -79,17 +79,29 @@
       .toast.show {
         transform: translateX(-50%) translateY(0);
         opacity: 1;
-        pointer-events: auto; /* Bisa diklik saat muncul (opsional) */
+        pointer-events: auto;
+      }
+      /* Tombol Tambah: state setelah diklik
+         Pakai 2 rule agar specificity-nya lebih tinggi dari
+         .dark .bg-gray-100 di dark-mode.css */
+      .btn-added,
+      html.dark .btn-added {
+        background-color: #22c55e !important;
+        color: #ffffff !important;
       }
     </style>
   </head>
-  <body class="bg-gray-50 dark:bg-gray-900 pb-24 transition-colors duration-300">
+  <body
+    class="bg-gray-50 dark:bg-gray-900 pb-24 transition-colors duration-300"
+  >
     <div id="toast" class="toast">
       <i class="fas fa-check-circle"></i>
       <span id="toastMessage">Produk ditambahkan ke keranjang</span>
     </div>
 
-    <header class="sticky top-0 z-40 bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
+    <header
+      class="sticky top-0 z-40 bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700"
+    >
       <div
         class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between"
       >
@@ -113,7 +125,9 @@
             href="checkout.html"
             class="w-10 h-10 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center justify-center relative"
           >
-            <i class="fas fa-shopping-cart text-gray-600 dark:text-gray-300"></i>
+            <i
+              class="fas fa-shopping-cart text-gray-600 dark:text-gray-300"
+            ></i>
             <span
               id="cartCount"
               class="absolute top-1 right-1 w-4 h-4 bg-mitsubishi-red text-white text-[10px] rounded-full flex items-center justify-center hidden"
@@ -134,7 +148,9 @@
       </div>
     </header>
 
-    <div class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700 px-4 py-3">
+    <div
+      class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700 px-4 py-3"
+    >
       <div class="max-w-7xl mx-auto">
         <div class="relative">
           <form id="searchForm" action="search-results.html" method="GET">
@@ -148,13 +164,6 @@
             <i
               class="fas fa-search absolute left-3.5 top-3.5 text-gray-400 dark:text-gray-500"
             ></i>
-            <button
-              type="button"
-              id="barcodeBtn"
-              class="absolute right-2 top-2 w-8 h-8 bg-white dark:bg-gray-600 rounded-lg shadow flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-mitsubishi-red transition-colors"
-            >
-              <i class="fas fa-barcode"></i>
-            </button>
           </form>
         </div>
         <div class="flex gap-2 mt-3 overflow-x-auto hide-scrollbar pb-1">
@@ -214,7 +223,7 @@
         </p>
         <a
           href="product-detail.html"
-          class="inline-flex items-center gap-2 bg-white text-slate-900 px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-100 transition"
+          class="hero-detail-btn inline-flex items-center gap-2 bg-white text-slate-900 dark:bg-white/15 dark:text-white dark:border dark:border-white/40 px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-100 dark:hover:bg-white/25 transition"
         >
           Lihat Detail <i class="fas fa-arrow-right text-xs"></i>
         </a>
@@ -254,23 +263,32 @@
                 src="assets/01-fr-a820-0.4k.jpg"
                 alt="FR-A820-0.4K"
                 class="w-full h-full object-cover"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'flex';
+                "
               />
               <i
                 class="fas fa-bolt text-3xl text-gray-400 dark:text-gray-500 group-hover:text-mitsubishi-red transition-colors"
                 style="display: none"
               ></i>
             </div>
-            <h4 class="font-semibold text-sm text-gray-900 dark:text-white mb-1 line-clamp-1">
+            <h4
+              class="font-semibold text-sm text-gray-900 dark:text-white mb-1 line-clamp-1"
+            >
               FR-A820-0.4K
             </h4>
-            <p class="text-xs text-gray-500 dark:text-gray-400 mb-2 line-clamp-1">
+            <p
+              class="text-xs text-gray-500 dark:text-gray-400 mb-2 line-clamp-1"
+            >
               Inverter 0.4kW 200V
             </p>
-            <p class="font-bold text-mitsubishi-red dark:text-red-400 text-sm">Rp 5.200.000</p>
+            <p class="font-bold text-mitsubishi-red dark:text-red-400 text-sm">
+              Rp 5.200.000
+            </p>
           </a>
           <button
-            onclick="addToCart('FR-A820-0.4K', 'FR-A820-0.4K', 5200000)"
+            onclick="addToCart('FR-A820-0.4K', 'FR-A820-0.4K', 5200000, this)"
             class="mt-2 w-full bg-gray-100 dark:bg-gray-700 hover:bg-mitsubishi-red hover:text-white text-gray-700 dark:text-gray-300 py-2 rounded-lg text-xs font-semibold transition-all active:scale-95 flex items-center justify-center gap-1"
           >
             <i class="fas fa-plus"></i> Tambah
@@ -307,23 +325,32 @@
                 src="assets/03-fx5u-32mt-es.jpg"
                 alt="FX5U-32MT/ESS"
                 class="w-full h-full object-cover"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'flex';
+                "
               />
               <i
                 class="fas fa-microchip text-3xl text-gray-400 dark:text-gray-500 group-hover:text-mitsubishi-red transition-colors"
                 style="display: none"
               ></i>
             </div>
-            <h4 class="font-semibold text-sm text-gray-900 dark:text-white mb-1 line-clamp-1">
+            <h4
+              class="font-semibold text-sm text-gray-900 dark:text-white mb-1 line-clamp-1"
+            >
               FX5U-32MT/ESS
             </h4>
-            <p class="text-xs text-gray-500 dark:text-gray-400 mb-2 line-clamp-1">
+            <p
+              class="text-xs text-gray-500 dark:text-gray-400 mb-2 line-clamp-1"
+            >
               PLC CPU 32 I/O
             </p>
-            <p class="font-bold text-mitsubishi-red dark:text-red-400 text-sm">Rp 8.500.000</p>
+            <p class="font-bold text-mitsubishi-red dark:text-red-400 text-sm">
+              Rp 8.500.000
+            </p>
           </a>
           <button
-            onclick="addToCart('FX5U-32MT/ESS', 'FX5U-32MT/ESS', 8500000)"
+            onclick="addToCart('FX5U-32MT/ESS', 'FX5U-32MT/ESS', 8500000, this)"
             class="mt-2 w-full bg-gray-100 dark:bg-gray-700 hover:bg-mitsubishi-red hover:text-white text-gray-700 dark:text-gray-300 py-2 rounded-lg text-xs font-semibold transition-all active:scale-95 flex items-center justify-center gap-1"
           >
             <i class="fas fa-plus"></i> Tambah
@@ -360,23 +387,32 @@
                 src="assets/05-fc-302-1.5kw.jpg"
                 alt="FC-302P1K5"
                 class="w-full h-full object-cover"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'flex';
+                "
               />
               <i
                 class="fas fa-bolt text-3xl text-gray-400 dark:text-gray-500 group-hover:text-mitsubishi-red transition-colors"
                 style="display: none"
               ></i>
             </div>
-            <h4 class="font-semibold text-sm text-gray-900 dark:text-white mb-1 line-clamp-1">
+            <h4
+              class="font-semibold text-sm text-gray-900 dark:text-white mb-1 line-clamp-1"
+            >
               FC-302P1K5
             </h4>
-            <p class="text-xs text-gray-500 dark:text-gray-400 mb-2 line-clamp-1">
+            <p
+              class="text-xs text-gray-500 dark:text-gray-400 mb-2 line-clamp-1"
+            >
               Danfoss VLT 1.5kW
             </p>
-            <p class="font-bold text-mitsubishi-red dark:text-red-400 text-sm">Rp 12.500.000</p>
+            <p class="font-bold text-mitsubishi-red dark:text-red-400 text-sm">
+              Rp 12.500.000
+            </p>
           </a>
           <button
-            onclick="addToCart('FC-302P1K5', 'FC-302P1K5', 12500000)"
+            onclick="addToCart('FC-302P1K5', 'FC-302P1K5', 12500000, this)"
             class="mt-2 w-full bg-gray-100 dark:bg-gray-700 hover:bg-mitsubishi-red hover:text-white text-gray-700 dark:text-gray-300 py-2 rounded-lg text-xs font-semibold transition-all active:scale-95 flex items-center justify-center gap-1"
           >
             <i class="fas fa-plus"></i> Tambah
@@ -413,7 +449,10 @@
                 src="assets/04-mr-j4-10b.jpg"
                 alt="MR-J4-10B"
                 class="w-full h-full object-cover"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'flex';
+                "
               />
               <i
                 class="fas fa-cog text-3xl text-gray-400 group-hover:text-mitsubishi-red transition-colors"
@@ -429,7 +468,7 @@
             <p class="font-bold text-mitsubishi-red text-sm">Rp 6.800.000</p>
           </a>
           <button
-            onclick="addToCart('MR-J4-10B', 'MR-J4-10B', 6800000)"
+            onclick="addToCart('MR-J4-10B', 'MR-J4-10B', 6800000, this)"
             class="mt-2 w-full bg-gray-100 hover:bg-mitsubishi-red hover:text-white text-gray-700 py-2 rounded-lg text-xs font-semibold transition-all active:scale-95 flex items-center justify-center gap-1"
           >
             <i class="fas fa-plus"></i> Tambah
@@ -466,7 +505,10 @@
                 src="assets/02-fr-a820-2.2k.jpg"
                 alt="FR-A820-2.2K"
                 class="w-full h-full object-cover"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'flex';
+                "
               />
               <i
                 class="fas fa-bolt text-3xl text-gray-400 group-hover:text-mitsubishi-red transition-colors"
@@ -482,7 +524,7 @@
             <p class="font-bold text-mitsubishi-red text-sm">Rp 12.500.000</p>
           </a>
           <button
-            onclick="addToCart('FR-A820-2.2K', 'FR-A820-2.2K', 12500000)"
+            onclick="addToCart('FR-A820-2.2K', 'FR-A820-2.2K', 12500000, this)"
             class="mt-2 w-full bg-gray-100 hover:bg-mitsubishi-red hover:text-white text-gray-700 py-2 rounded-lg text-xs font-semibold transition-all active:scale-95 flex items-center justify-center gap-1"
           >
             <i class="fas fa-plus"></i> Tambah
@@ -519,7 +561,10 @@
                 src="assets/06-fr-d720-0.75k.jpg"
                 alt="FR-D720-0.75K"
                 class="w-full h-full object-cover"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'flex';
+                "
               />
               <i
                 class="fas fa-bolt text-3xl text-gray-400 group-hover:text-mitsubishi-red transition-colors"
@@ -535,7 +580,7 @@
             <p class="font-bold text-mitsubishi-red text-sm">Rp 3.200.000</p>
           </a>
           <button
-            onclick="addToCart('FR-D720-0.75K', 'FR-D720-0.75K', 3200000)"
+            onclick="addToCart('FR-D720-0.75K', 'FR-D720-0.75K', 3200000, this)"
             class="mt-2 w-full bg-gray-100 hover:bg-mitsubishi-red hover:text-white text-gray-700 py-2 rounded-lg text-xs font-semibold transition-all active:scale-95 flex items-center justify-center gap-1"
           >
             <i class="fas fa-plus"></i> Tambah
@@ -572,7 +617,10 @@
                 src="assets/07-fx3g-24mr-es.jpg"
                 alt="FX3G-24MR/ES-A"
                 class="w-full h-full object-cover"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'flex';
+                "
               />
               <i
                 class="fas fa-microchip text-3xl text-gray-400 group-hover:text-mitsubishi-red transition-colors"
@@ -588,7 +636,9 @@
             <p class="font-bold text-mitsubishi-red text-sm">Rp 5.800.000</p>
           </a>
           <button
-            onclick="addToCart('FX3G-24MR/ES-A', 'FX3G-24MR/ES-A', 5800000)"
+            onclick="
+              addToCart('FX3G-24MR/ES-A', 'FX3G-24MR/ES-A', 5800000, this)
+            "
             class="mt-2 w-full bg-gray-100 hover:bg-mitsubishi-red hover:text-white text-gray-700 py-2 rounded-lg text-xs font-semibold transition-all active:scale-95 flex items-center justify-center gap-1"
           >
             <i class="fas fa-plus"></i> Tambah
@@ -625,7 +675,10 @@
                 src="assets/08-gt2103-pmbds.jpg"
                 alt="GT2103-PMBDS"
                 class="w-full h-full object-cover"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'flex';
+                "
               />
               <i
                 class="fas fa-desktop text-3xl text-gray-400 group-hover:text-mitsubishi-red transition-colors"
@@ -641,7 +694,7 @@
             <p class="font-bold text-mitsubishi-red text-sm">Rp 6.500.000</p>
           </a>
           <button
-            onclick="addToCart('GT2103-PMBDS', 'GT2103-PMBDS', 6500000)"
+            onclick="addToCart('GT2103-PMBDS', 'GT2103-PMBDS', 6500000, this)"
             class="mt-2 w-full bg-gray-100 hover:bg-mitsubishi-red hover:text-white text-gray-700 py-2 rounded-lg text-xs font-semibold transition-all active:scale-95 flex items-center justify-center gap-1"
           >
             <i class="fas fa-plus"></i> Tambah
@@ -678,7 +731,10 @@
                 src="assets/09-mr-j4-10a.jpg"
                 alt="MR-J4-10A"
                 class="w-full h-full object-cover"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'flex';
+                "
               />
               <i
                 class="fas fa-cog text-3xl text-gray-400 group-hover:text-mitsubishi-red transition-colors"
@@ -694,7 +750,7 @@
             <p class="font-bold text-mitsubishi-red text-sm">Rp 6.200.000</p>
           </a>
           <button
-            onclick="addToCart('MR-J4-10A', 'MR-J4-10A', 6200000)"
+            onclick="addToCart('MR-J4-10A', 'MR-J4-10A', 6200000, this)"
             class="mt-2 w-full bg-gray-100 hover:bg-mitsubishi-red hover:text-white text-gray-700 py-2 rounded-lg text-xs font-semibold transition-all active:scale-95 flex items-center justify-center gap-1"
           >
             <i class="fas fa-plus"></i> Tambah
@@ -731,7 +787,10 @@
                 src="assets/10-fc-051-0.75kw.jpg"
                 alt="FC-051-132F0003"
                 class="w-full h-full object-cover"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'flex';
+                "
               />
               <i
                 class="fas fa-bolt text-3xl text-gray-400 group-hover:text-mitsubishi-red transition-colors"
@@ -747,7 +806,9 @@
             <p class="font-bold text-mitsubishi-red text-sm">Rp 3.200.000</p>
           </a>
           <button
-            onclick="addToCart('FC-051-132F0003', 'FC-051-132F0003', 3200000)"
+            onclick="
+              addToCart('FC-051-132F0003', 'FC-051-132F0003', 3200000, this)
+            "
             class="mt-2 w-full bg-gray-100 hover:bg-mitsubishi-red hover:text-white text-gray-700 py-2 rounded-lg text-xs font-semibold transition-all active:scale-95 flex items-center justify-center gap-1"
           >
             <i class="fas fa-plus"></i> Tambah
@@ -891,7 +952,7 @@
         });
       }
 
-      function addToCart(productId, productName, price) {
+      function addToCart(productId, productName, price, btnEl) {
         const existingItem = cart.find((item) => item.id === productId);
         if (existingItem) {
           existingItem.quantity += 1;
@@ -908,6 +969,15 @@
         updateCartCount();
         updateStockBadges();
         showToast(`${productName} ditambahkan ke keranjang`, "success");
+        // Visual feedback: toggle .btn-added class (pakai !important di CSS agar menang)
+        if (btnEl) {
+          btnEl.classList.add("btn-added");
+          btnEl.innerHTML = "<i class='fas fa-check'></i> Ditambahkan";
+          setTimeout(() => {
+            btnEl.classList.remove("btn-added");
+            btnEl.innerHTML = "<i class='fas fa-plus'></i> Tambah";
+          }, 1500);
+        }
         const cartIcon = document.querySelector(".fa-shopping-cart");
         cartIcon.parentElement.classList.add("scale-110");
         setTimeout(
@@ -1014,13 +1084,6 @@
           window.location.href = `search-results.html?q=${encodeURIComponent(query)}`;
         }
       });
-
-      // Barcode button
-      document
-        .getElementById("barcodeBtn")
-        .addEventListener("click", function () {
-          showToast("Fitur scan barcode segera hadir", "success");
-        });
 
       // ==================== INITIALIZATION ====================
       document.addEventListener("DOMContentLoaded", function () {
